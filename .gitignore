@@ -1,0 +1,43 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.env
+*.sqlite3
+*.db
+*.log
+
+# Environ
+.env
+
+# Django
+/static/
+/media/
+/db.sqlite3
+
+# VSCode
+.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Others
+.idea/
+*.swp
+*.swo
