@@ -1,0 +1,10 @@
+<div>
+    <h1>
+        Crear nuevo post
+    </h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear post</button>
+    </form>
+</div>

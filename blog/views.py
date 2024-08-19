@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic.base import View, redirect
+from django.views.generic import View
+from django.shortcuts import redirect
 from .forms import BlogPostForm
 
 class BlogViewList(View):
