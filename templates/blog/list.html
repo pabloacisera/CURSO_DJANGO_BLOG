@@ -1,14 +1,28 @@
-<h3>Lista de blogs</h3>
+{% extends "base.html" %}
 
-<button><a href="{% url "blog:create" %}">Nuevo post</a></button>
+{% block content %}
+    <div class="container mt-5">
+        <h3 class="mb-4">Lista de blogs</h3>
+        
+        <a href="{% url 'blog:create' %}" class="btn btn-primary mb-4">Nuevo post</a>
 
-{% for post in posts %}
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    <small>Publicado el: {{ post.pub_date }}</small><br>
-    <small>Autor: {{ post.author }}</small>
-    <button><a href="{% url "blog:update" post.id %}">Actualizar</a></button>
-    <button><a href="{% url "blog:delete" post.id %}">Borrar</a></button>
-{% empty %}
-    <p>No hay posts disponibles.</p>
-{% endfor %}
+        {% for post in posts %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text">{{ post.content }}</p>
+                    <footer class="blockquote-footer">
+                        Publicado el: <small>{{ post.pub_date }}</small><br>
+                        Autor: <small>{{ post.author }}</small>
+                    </footer>
+                    <div class="mt-3">
+                        <a href="{% url 'blog:update' post.id %}" class="btn btn-warning btn-sm">Actualizar</a>
+                        <a href="{% url 'blog:delete' post.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No hay posts disponibles.</p>
+        {% endfor %}
+    </div>
+{% endblock content %}

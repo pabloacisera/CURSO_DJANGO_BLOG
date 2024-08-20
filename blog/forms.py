@@ -1,4 +1,3 @@
-# blog/forms.py
 from django import forms
 from .models import BlogPost
 
@@ -10,4 +9,4 @@ class BlogPostForm(forms.ModelForm):
     
     class Meta:
         model = BlogPost
-        fields = '__all__'
+        fields = ['title', 'content', 'pub_date', 'author']

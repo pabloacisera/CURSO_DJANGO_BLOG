@@ -1,8 +1,14 @@
-<h3>¿Estás seguro de que deseas eliminar el post "{{ object.title }}"?</h3>
-<p>{{ object.content }}</p>
+{% extends "base.html" %}
 
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Confirmar eliminación</button>
-    <a href="{% url 'blog:home' %}">Cancelar</a>
-</form>
+{% block content %}
+    <div class="container mt-5">
+        <h3 class="mb-4">¿Estás seguro de que deseas eliminar el post "{{ object.title }}"?</h3>
+        <p>{{ object.content }}</p>
+
+        <form method="post" class="mb-3">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmar eliminación</button>
+            <a href="{% url 'blog:home' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+{% endblock content %}

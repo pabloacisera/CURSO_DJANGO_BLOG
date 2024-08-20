@@ -1,7 +1,39 @@
-<h3>Actualizar Blog Post</h3>
+{% extends "base.html" %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar cambios</button>
-</form>
+{% block content %}
+    <div class="container mt-5">
+        <h3 class="mb-4 text-center">Actualizar Blog Post</h3>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="id_title" class="form-label">Título</label>
+                        <input type="text" name="title" maxlength="200" required id="id_title" class="form-control" value="{{ form.title.value }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_content" class="form-label">Contenido</label>
+                        <textarea name="content" cols="40" rows="10" required id="id_content" class="form-control">{{ form.content.value }}</textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_pub_date" class="form-label">Fecha de Publicación</label>
+                        <input type="datetime-local" name="pub_date" required id="id_pub_date" class="form-control" value="{{ form.pub_date.value|date:'Y-m-d\TH:i' }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_author" class="form-label">Autor</label>
+                        <select name="author" required id="id_author" class="form-select">
+                            <option value="" {% if not form.author.value %}selected{% endif %}>---------</option>
+                            <option value="1" {% if form.author.value == '1' %}selected{% endif %}>randomdev</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

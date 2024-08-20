@@ -31,7 +31,7 @@ class BlogCreate(View):
 class BlogUpdate(UpdateView):
     model = BlogPost
     form_class = BlogPostForm
-    template_name = 'blog/updateView.html'  # Cambiado a un nombre más común
+    template_name = 'blog/updateView.html'
     success_url = reverse_lazy('blog:home')
 
     def get_object(self, queryset=None):
