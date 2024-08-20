@@ -1,0 +1,8 @@
+<h3>¿Estás seguro de que deseas eliminar el post "{{ object.title }}"?</h3>
+<p>{{ object.content }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar eliminación</button>
+    <a href="{% url 'blog:home' %}">Cancelar</a>
+</form>

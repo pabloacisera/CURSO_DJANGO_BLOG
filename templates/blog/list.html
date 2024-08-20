@@ -1,8 +1,14 @@
-<h3>Esto es una lista de blogs</h3>
+<h3>Lista de blogs</h3>
 
-<button><a href="{% url "blog:create" %}" >Nuevo post</a></button>
+<button><a href="{% url "blog:create" %}">Nuevo post</a></button>
 
-<ul>
-    <li>BLOG 1</li>
-    <li>BLOG 2</li>
-</ul>  
+{% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <small>Publicado el: {{ post.pub_date }}</small><br>
+    <small>Autor: {{ post.author }}</small>
+    <button><a href="{% url "blog:update" post.id %}">Actualizar</a></button>
+    <button><a href="{% url "blog:delete" post.id %}">Borrar</a></button>
+{% empty %}
+    <p>No hay posts disponibles.</p>
+{% endfor %}

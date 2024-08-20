@@ -18,3 +18,9 @@ h- vamos a crear una clase que llame a un metodo get() que tendra un return rend
 i- en settings verificaremos que el template pueda ser encontrado: os.path.join() con un import os
 
 j- para crear una nueva app "python manage.py startapp blog"
+
+
+
+
+
+Ayu Monokai

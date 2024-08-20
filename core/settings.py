@@ -5,7 +5,7 @@ import environ
 import os
 
 
-#####variables de entorno######3
+#####variables de entorno######
 
 env = environ.Env()
 environ.Env.read_env()
